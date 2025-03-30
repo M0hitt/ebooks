@@ -16,7 +16,7 @@ Before running the project, ensure you have the following installed:
 
 1. **Clone the Repository**
    ```sh
-   git clone <://github.com/M0hitt/ebooks.git
+   git clone https://github.com/M0hitt/ebooks.git
    cd ebooks
    ```
 
