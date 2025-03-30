@@ -1,0 +1,24 @@
+@if(bookObj){
+    <div class="border rounded py-3">
+        <div>
+            {{bookObj.Name}}
+        </div>
+        <div class="image">
+            <img [src]="bookObj.Cover" alt="image">
+        </div>
+        <div>
+            {{bookObj.Title}}
+        </div>
+        <div>
+            {{bookObj.Price | currency : 'INR'}}
+        </div>
+        <div>
+            @if(userObj.id && bookObj.PurchasedBy.includes(userObj.id)){
+                <mat-progress-bar mode="determinate" [value]="bookObj.LastReadPosition | appProgress : userObj.id : bookObj.Data.length"></mat-progress-bar>
+                <button (click)="viewBook(bookObj.Id)" >View</button>
+            }@else {
+                <button (click)="purchaseBook(bookObj.Id)">Purchase</button>
+            }
+        </div>
+    </div>
+}

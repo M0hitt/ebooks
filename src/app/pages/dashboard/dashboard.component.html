@@ -1,0 +1,11 @@
+<div class="container-sm my-5">
+<div class="row">
+    @if(BooksList()){
+        @for(books of BooksList();track books.PurchasedBy){
+            <div class="col-md-4 mb-4">
+                <app-book (event)="getBooks()" [userObj]="user()" [bookObj]="books"></app-book>
+            </div>
+        }
+    }
+</div>
+</div>

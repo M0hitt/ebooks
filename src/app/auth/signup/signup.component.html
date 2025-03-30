@@ -1,0 +1,48 @@
+<div class="container-sm my-5">
+    <form [formGroup]="signupForm" (submit)="submit()">
+        <div class="row">
+            <div class="col-md-12 mb-2">
+                <mat-form-field class="d-flex">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput formControlName="name" 
+                           placeholder="Name">
+                    @if (name.hasError('required')) {
+                      <mat-error>Name is <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+            </div>
+            <div class="col-md-12 mb-2">
+                <mat-form-field class="d-flex">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email" 
+                           placeholder="Email">
+                    @if (email.hasError('email') && !email.hasError('required')) {
+                      <mat-error>Please enter a valid email address</mat-error>
+                    }
+                    @if (email.hasError('required')) {
+                      <mat-error>Email is <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+            </div>
+            <div class="col-md-12 mb-2">
+                <mat-form-field class="d-flex">
+                    <mat-label>Password</mat-label>
+                    <input type="text" matInput formControlName="password" 
+                           placeholder="Password">
+                    @if (password.hasError('email') && !password.hasError('required')) {
+                      <mat-error>Please enter a valid email address</mat-error>
+                    }
+                    @if (password.hasError('required')) {
+                      <mat-error>Email is <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+            </div>
+            <div class="col-md-12 mb-5 text-end">
+          <button mat-raised-button color="primary">Sign Up</button>
+            </div>
+            <div class="col-md-12 text-center"  [routerLink]="['/auth/login']">
+                Login
+            </div>
+        </div>
+    </form>
+</div>
