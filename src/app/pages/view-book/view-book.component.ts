@@ -50,13 +50,17 @@ export class ViewBookComponent {
           let key = this.userObj()?.id;
           if (key && res.LastReadPosition?.[key]) {
             let chapterIndex = res.LastReadPosition[key].ChapterIndex;
-            this.loadPosition(res.LastReadPosition[key].ContentOffset)
               this.currentPage.set(res.Data[chapterIndex | 0]);
-              this.currentPageIndex.set(chapterIndex | 0)
+              this.currentPageIndex.set(chapterIndex | 0);
+              setTimeout(() => {   
+                this.loadPosition(res.LastReadPosition[key].ContentOffset)
+              }, 0);
           }else{
             this.currentPage.set(res.Data[0])
             this.currentPageIndex.set(0);
           }
+
+     
         }
       });
     }
@@ -65,17 +69,14 @@ export class ViewBookComponent {
   loadPosition(offSet:number){
     if(this.textContainer){
         const textElement = this.textContainer.nativeElement;
-     
+      debugger;
         textElement.style.position = 'relative';
-      
-        if (offSet !== undefined) {
-          const rect = textElement.getBoundingClientRect();
-          const scrollPosition = (offSet / 100) * rect.height;
-          textElement.scrollTop = scrollPosition;
-      
+        const rect = textElement.getBoundingClientRect();
+    
+        const position = (offSet / 100) * rect.height;
           const marker = this.markerElement;  
           if (marker) {
-            marker.nativeElement.style.top = `${scrollPosition}px`;
+            marker.nativeElement.style.top = `${position}px`;
             marker.nativeElement.style.display = 'block';
             marker.nativeElement.style.left = '50%';
             marker.nativeElement.style.transform = 'translateX(-50%)';
@@ -83,10 +84,7 @@ export class ViewBookComponent {
             setTimeout(() => {
               marker.nativeElement.style.display = 'none';
             }, 10000);
-          }
-
-         
-        }  
+          }  
       
     }
 

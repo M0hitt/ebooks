@@ -21,9 +21,9 @@ export class ProgressPipe implements PipeTransform {
     if (userProgress === undefined) {
       return 0;
     }
-       const progress = (userProgress + 1 / totalChapters) * 100;
-
-       return Math.min(100, Math.max(0, Math.round(progress)));
+       const progress = ((userProgress + 1) * 100)/ totalChapters;
+      debugger;
+       return progress;
   }
 
 }

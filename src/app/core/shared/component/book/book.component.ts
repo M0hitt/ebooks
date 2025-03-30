@@ -31,6 +31,7 @@ export class BookComponent {
     if(userId && bookId){
       this.bookService.purchaseBook(userId,bookId).subscribe(res =>{
         this.event.emit(true);
+        this._snackBar.open("Book Purchased" )
       })
     }else{
       this._snackBar.open("Something Went Wrong!!")
