@@ -1,59 +1,64 @@
-# Ebooks
+# Angular 19 E-Book Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
+## Project Overview
+This project is an Angular 19-based e-book platform where users can sign up, log in, purchase books, and read them interactively. Key features include:
+- **User Authentication**: Users must sign up and log in to access the platform.
+- **Book Purchase**: Users can purchase books from the available collection.
+- **Book Reading Progress**: As users read, their progress is automatically saved.
+- **Auto-Resume Feature**: When a user reopens a book, it automatically navigates to the last read section with a marker indicating where they left off.
 
-## Development server
+## Prerequisites
+Before running the project, ensure you have the following installed:
+- **Node.js** (Recommended: v18+)
+- **Angular CLI** (Recommended: v19)
 
-To start a local development server, run:
+## Installation Steps
 
-```bash
-ng serve
+1. **Clone the Repository**
+   ```sh
+   git clone <://github.com/M0hitt/ebooks.git
+   cd ebooks
+   ```
+
+2. **Install Dependencies**
+   ```sh
+   npm install
+   ```
+
+3. **Run the Development Server**
+   ```sh
+   ng serve
+   ```
+   The application will be accessible at `http://localhost:4200/`.
+
+## Features in Detail
+1. **User Registration & Login**
+   - New users must register through the signup page.
+   - Once registered, they can log in with their credentials.
+
+2. **Book Purchasing**
+   - Users can browse and purchase available books.
+   - Purchased books are stored in their account using local storage.
+
+3. **Reading Progress Tracking**
+   - Users can click on any paragraph, and progress will be saved in local storage.
+   - When revisiting the book, they will be taken to the last read position.
+   - A visual marker will indicate where they last left off.
+
+## Running in Production
+To build for production, use:
+```sh
+ng build --prod
 ```
+Deploy the generated `dist/` folder to a web server of your choice.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Additional Commands
+- **Run Unit Tests**: `ng test`
+- **Run End-to-End Tests**: `ng e2e`
+- **Linting**: `ng lint`
 
-## Code scaffolding
+## Contact
+For any issues or contributions, create an issue in the repository or contact @mohitthakurrishu@gmail.com.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Happy Coding! 🚀
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
