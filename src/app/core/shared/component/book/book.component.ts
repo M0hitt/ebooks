@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { BooksService } from '../../../services';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { ProgressPipe } from '../pipes/progress.pipe';
+import { ProgressPipe } from '../../pipes/progress.pipe';
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-book',
-  imports: [CommonModule,MatProgressBarModule,ProgressPipe],
+  imports: [CommonModule,MatButtonModule,MatProgressBarModule,ProgressPipe],
   templateUrl: './book.component.html',
   styleUrl: './book.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,7 +23,6 @@ export class BookComponent {
   _snackBar = inject(MatSnackBar);
   router = inject(Router);
   bookService = inject(BooksService);
-
 
   purchaseBook(bookId:number | undefined){
     debugger;
@@ -38,7 +38,7 @@ export class BookComponent {
   }
 
   viewBook(id:number){
-
+    this.router.navigateByUrl(`/book/${id}`)
   }
 
  }

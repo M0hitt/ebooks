@@ -1,1 +1,25 @@
-<p>view-book works!</p>,
+<div class="container-sm">
+    <div class="row">
+        <div class="col-md-12 mb-3 d-flex justify-content-around mt-4">
+            <div class="h6 text-secondary">{{bookObj()?.Name}}</div>
+            <div class="text-secondary small">~{{bookObj()?.Publisher}}</div>
+        </div>
+        <div class="col-md-12 mb-3 text-center fs-4 text-info">
+            {{currentPage()?.Chapter}}
+        </div>
+        <div #textContainer class="col-md-12 cursor-pointer mb-3 border-bottom pb-4" (click)="savePosition($event)">
+            {{currentPage()?.Content}}
+            <div #marker id="marker" >You Last Left Here</div>
+        </div>
+        <div class="col-md-12 mb-3 d-flex justify-content-around">
+            <button mat-raised-button color="primary" (click)="nextPreviousPage('previous')"
+                [disabled]="currentPageIndex() == 0">Previous</button>
+            <button mat-raised-button color="success" (click)="nextPreviousPage('next')"
+                [disabled]="!(bookObj()?.Data?.length) || currentPageIndex() === (bookObj()?.Data?.length ?? 0) - 1">
+                Next
+            </button>
+        </div>
+    </div>
+
+</div>
+

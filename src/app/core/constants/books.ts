@@ -7,7 +7,7 @@ export const Book: IBook[] = [
         Name: "The Lost City",
         Publisher: "John Smith",
         Title: "Journey to the Unknown",
-        Cover: "/img/lost-city.jpg",
+        Cover: "/assets/book1.jpg",
         Data: [
             {
                 Chapter: "Introduction",
