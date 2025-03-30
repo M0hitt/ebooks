@@ -1,6 +1,9 @@
-<div class="container-sm my-5">
+<div class="container-sm mt-5 d-flex justify-content-center">
     <form [formGroup]="loginForm" (submit)="Login()" >
-      <div class="row">
+      <div class="row border rounded p-5 loginBox" >
+        <div class="col-md-12 text-center h3 mb-4">
+          My e-Book
+        </div>
         <div class="col-md-12 mb-2">
           <mat-form-field class="d-flex">
             <mat-label>Email</mat-label>
@@ -25,10 +28,11 @@
           </mat-form-field>
         </div>
         <div class="col-md-12 mb-5 text-end">
-          <button mat-raised-button color="primary">Sign In</button>
+          <button mat-flat-button color="primary">Sign In <mat-icon>arrow_forward</mat-icon></button>
         </div>
-        <div class="col-md-12 mb-5 text-center" [routerLink]="['/auth/signup']">
-          Sign Up
+        <div class="col-md-12 mb-5 d-flex align-items-center justify-content-center gap-2 " [routerLink]="['/auth/signup']">
+         New User ?
+          <button mat-raised-button color="primary">Sign Up <mat-icon>redo</mat-icon></button>
         </div>
       </div>
       

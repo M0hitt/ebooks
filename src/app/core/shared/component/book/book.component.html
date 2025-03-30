@@ -1,24 +1,27 @@
 @if(bookObj){
-    <div class="border rounded py-3">
-        <div class="text-center">
+    <div class="border rounded p-3 bookCard">
+        <div class="text-center border-bottom">
             {{bookObj.Name}}
         </div>
-        <div class="image">
-            <img src="assets/images/book1.jpg" alt="fds">
-            <img [src]="bookObj.Cover" alt="image">
+        <div class="text-center">
+            <img [height]="200" [src]="bookObj.Cover" alt="image">
         </div>
-        <div>
+        <div class="text-secondary border-bottom">
             {{bookObj.Title}}
         </div>
-        <div>
+        <div class="text-success">
             {{bookObj.Price | currency : 'INR'}}
         </div>
-        <div>
+        <div class="text-center">
             @if(userObj.id && bookObj.PurchasedBy.includes(userObj.id)){
-                <mat-progress-bar mode="determinate" [value]="bookObj.LastReadPosition | appProgress : userObj.id : bookObj.Data.length"></mat-progress-bar>
-                <button  mat-raised-button color="primary" (click)="viewBook(bookObj.Id)" >View</button>
+                <button mat-raised-button  color="primary" (click)="viewBook(bookObj.Id)" >View  <mat-icon>visibility</mat-icon></button>
+                <div class="p-2 mt-2">
+                    <mat-progress-bar mode="determinate" [value]="bookObj.LastReadPosition | appProgress : userObj.id : bookObj.Data.length"></mat-progress-bar>
+                </div>
             }@else {
-                <button  mat-raised-button color="primary" (click)="purchaseBook(bookObj.Id)">Purchase</button>
+                <div class="mb-4" >
+                    <button mat-flat-button color="primary" (click)="purchaseBook(bookObj.Id)">Purchase  <mat-icon>favorite</mat-icon></button>
+                </div>
             }
         </div>
     </div>

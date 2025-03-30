@@ -5,11 +5,12 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { AccountsService } from '../../core/services/accounts.service';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-signup',
-  imports: [MatInputModule,MatButtonModule,RouterLink,ReactiveFormsModule],
+  imports: [MatInputModule,MatIconModule,MatButtonModule,RouterLink,ReactiveFormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

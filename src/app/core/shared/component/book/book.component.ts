@@ -7,10 +7,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ProgressPipe } from '../../pipes/progress.pipe';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-book',
-  imports: [CommonModule,MatButtonModule,MatProgressBarModule,ProgressPipe],
+  imports: [CommonModule,MatIconModule,MatButtonModule,MatProgressBarModule,ProgressPipe],
   templateUrl: './book.component.html',
   styleUrl: './book.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

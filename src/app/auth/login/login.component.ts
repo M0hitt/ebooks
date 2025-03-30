@@ -6,10 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { AccountsService } from '../../core/services/accounts.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BooksService } from '../../core/services/books.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-login',
-  imports: [MatInputModule,MatButtonModule,ReactiveFormsModule,RouterLink],
+  imports: [MatInputModule,MatIconModule,MatButtonModule,ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

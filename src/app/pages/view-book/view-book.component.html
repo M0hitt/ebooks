@@ -13,10 +13,10 @@
         </div>
         <div class="col-md-12 mb-3 d-flex justify-content-around">
             <button mat-raised-button color="primary" (click)="nextPreviousPage('previous')"
-                [disabled]="currentPageIndex() == 0">Previous</button>
-            <button mat-raised-button color="success" (click)="nextPreviousPage('next')"
+                [disabled]="currentPageIndex() == 0"><mat-icon>arrow_backward_iOS</mat-icon> Previous</button>
+            <button mat-flat-button  color="success" (click)="nextPreviousPage('next')"
                 [disabled]="!(bookObj()?.Data?.length) || currentPageIndex() === (bookObj()?.Data?.length ?? 0) - 1">
-                Next
+                Next <mat-icon >arrow_forward_iOS</mat-icon>
             </button>
         </div>
     </div>

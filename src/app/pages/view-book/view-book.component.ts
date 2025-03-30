@@ -3,10 +3,13 @@ import { IBook, IBookContent, IUser } from '../../core/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import { AccountsService, BooksService } from '../../core/services';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-view-book',
-  imports: [MatButtonModule],
+  imports: [CommonModule,MatButtonModule,MatIconModule],
   templateUrl: './view-book.component.html',
   styleUrl: './view-book.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,6 +25,7 @@ export class ViewBookComponent {
 
   activeRoute = inject(ActivatedRoute);
   bookService = inject(BooksService);
+  _snackBar = inject(MatSnackBar);
   aService = inject(AccountsService);
 
   ngOnInit() {
@@ -78,7 +82,7 @@ export class ViewBookComponent {
 
             setTimeout(() => {
               marker.nativeElement.style.display = 'none';
-            }, 1000);
+            }, 10000);
           }
 
          
@@ -97,6 +101,7 @@ export class ViewBookComponent {
 
 
     this.bookService.saveBookPosition(this.bookObj(),percentagePosition,this.currentPageIndex(),this.userObj()?.id)
+    this._snackBar.open("Your History Saved" )
   }
   
 
